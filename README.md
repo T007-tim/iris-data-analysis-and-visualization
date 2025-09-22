@@ -1,8 +1,19 @@
-# iris-data-analysis-and-visualization
-Exploratory data analysis and visualization of the Iris dataset using Python (Pandas, Matplotlib, Seaborn). Includes data cleaning, grouping, statistical summaries, and multiple custom plots.
-# Iris Data Analysis and Visualization
+# iris_analysis.py
 
-This project performs a complete exploratory data analysis (EDA) on the classic **Iris dataset**, including data cleaning, statistical summaries, grouping analysis, and data visualizations using Python libraries such as **Pandas**, **Matplotlib**, and **Seaborn**.
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.datasets import load_iris
 
----
+def load_iris_dataset():
+    try:
+        iris = load_iris()
+        df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
+        df['species'] = pd.Categorical.from_codes(iris.target, iris.target_names)
+        print(" Iris dataset loaded successfully!\n")
+        return df
+    except Exception as e:
+        print("Error l")
+
 
